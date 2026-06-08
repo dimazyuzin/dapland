@@ -2,9 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { VideoCard } from "../components/VideoCard";
 import styles from "./FeedPage.module.css";
 
-const VIDEOS = Array.from({ length: 15 }, (_, i) => `/videos/${i + 1}.mp4`)
-  .filter((_, i) => i !== 14); // skip missing 15.mp4, use 1-14 + 16
-
 const ALL_VIDEOS = [
   ...Array.from({ length: 14 }, (_, i) => `/videos/${i + 1}.mp4`),
   "/videos/16.mp4",
