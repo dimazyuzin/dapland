@@ -34,7 +34,7 @@ export function NavBar({ active = "court", onTabChange }: NavBarProps) {
               <Icon
                 name={icon}
                 size={isAdd ? 36 : 24}
-                color={isAdd ? "#000" : "#fff"}
+                color="#fff"
               />
             </span>
           </button>

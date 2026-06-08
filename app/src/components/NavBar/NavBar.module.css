@@ -73,18 +73,5 @@
 .iconWrapAdd {
   width: 48px;
   height: 32px;
-  border-radius: 30px;
-  background: #fff;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.08), 0px 2px 16px rgba(0, 0, 0, 0.16);
-  filter: none;
-  opacity: 0.6;
-}
-
-.tabAdd.tabActive .iconWrapAdd {
-  opacity: 1;
-}
-
-/* Add icon color is black on white pill */
-.tabAdd .iconWrap {
   filter: none;
 }
