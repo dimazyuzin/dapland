@@ -60,7 +60,7 @@
   line-height: var(--text-lg-line);
   letter-spacing: var(--text-lg-spacing);
   color: var(--color-primary);
-  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.08), 0px 2px 16px rgba(0, 0, 0, 0.16);
+  text-shadow: var(--shadow-on-video);
   white-space: nowrap;
 }
 
@@ -81,7 +81,7 @@
   line-height: var(--text-md-line);
   letter-spacing: var(--text-md-spacing);
   color: var(--color-primary);
-  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.08), 0px 2px 16px rgba(0, 0, 0, 0.16);
+  text-shadow: var(--shadow-on-video);
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -118,7 +118,7 @@
   letter-spacing: var(--text-sm-spacing);
   text-align: right;
   color: var(--color-primary);
-  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.08), 0px 2px 16px rgba(0, 0, 0, 0.16);
+  text-shadow: var(--shadow-on-video);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -133,7 +133,7 @@
   letter-spacing: var(--text-xxs-spacing);
   text-align: right;
   color: var(--color-primary);
-  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.08), 0px 2px 16px rgba(0, 0, 0, 0.16);
+  text-shadow: var(--shadow-on-video);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
