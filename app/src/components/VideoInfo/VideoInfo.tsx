@@ -8,6 +8,7 @@ export interface VideoInfoProps {
   comment: string;
   trackName: string;
   artistName: string;
+  opacity?: number;
   coverUrl?: string;
   onFollow?: () => void;
 }
@@ -20,9 +21,10 @@ export function VideoInfo({
   artistName,
   coverUrl,
   onFollow,
+  opacity = 1,
 }: VideoInfoProps) {
   return (
-    <div className={styles.info}>
+    <div className={styles.info} style={{ opacity }}>
       {/* Left: user + comment */}
       <div className={styles.container}>
         <div className={styles.userInfo}>

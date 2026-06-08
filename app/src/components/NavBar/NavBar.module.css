@@ -40,8 +40,8 @@
   padding: 8px 10px;
   gap: 10px;
 
-  width: 56px;
-  min-width: 56px;
+  width: 64px;
+  min-width: 64px;
   height: 48px;
 
   background: none;
@@ -84,8 +84,8 @@
 /* Add tab — 72x48, icon 48x32 */
 .tabAdd {
   padding: 0 12px;
-  width: 72px;
-  min-width: 72px;
+  width: 80px;
+  min-width: 80px;
   align-self: stretch;
 }
 

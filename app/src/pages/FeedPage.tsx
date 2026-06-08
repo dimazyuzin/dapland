@@ -7,22 +7,30 @@ const ALL_VIDEOS = [
   "/videos/16.mp4",
 ];
 
+// Thresholds for smooth opacity tracking
+const THRESHOLDS = Array.from({ length: 21 }, (_, i) => i / 20);
+
 export function FeedPage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [ratios, setRatios] = useState<number[]>(ALL_VIDEOS.map((_, i) => i === 0 ? 1 : 0));
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+        setRatios((prev) => {
+          const next = [...prev];
+          for (const entry of entries) {
             const index = itemRefs.current.indexOf(entry.target as HTMLDivElement);
-            if (index !== -1) setActiveIndex(index);
+            if (index !== -1) {
+              next[index] = entry.intersectionRatio;
+              if (entry.intersectionRatio >= 0.6) setActiveIndex(index);
+            }
           }
-        }
+          return next;
+        });
       },
-      { threshold: 0.6 }
+      { threshold: THRESHOLDS }
     );
 
     itemRefs.current.forEach((el) => { if (el) observer.observe(el); });
@@ -30,14 +38,18 @@ export function FeedPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className={styles.feed}>
+    <div className={styles.feed}>
       {ALL_VIDEOS.map((src, i) => (
         <div
           key={src}
           ref={(el) => { itemRefs.current[i] = el; }}
           className={styles.slide}
         >
-          <VideoCard src={src} isActive={i === activeIndex} />
+          <VideoCard
+            src={src}
+            isActive={i === activeIndex}
+            visibility={ratios[i] ?? 0}
+          />
         </div>
       ))}
     </div>

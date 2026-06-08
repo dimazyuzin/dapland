@@ -5,6 +5,7 @@ import styles from "./VideoCard.module.css";
 export interface VideoCardProps {
   src: string;
   isActive: boolean;
+  visibility?: number;
   nickname?: string;
   comment?: string;
   trackName?: string;
@@ -15,6 +16,7 @@ export interface VideoCardProps {
 export function VideoCard({
   src,
   isActive,
+  visibility = 1,
   nickname = "@player",
   comment = "Amazing shot! #basketball #dunk",
   trackName = "Track Name",
@@ -50,6 +52,7 @@ export function VideoCard({
         trackName={trackName}
         artistName={artistName}
         userpic={userpic}
+        opacity={visibility}
       />
     </div>
   );
