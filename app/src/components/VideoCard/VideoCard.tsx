@@ -1,12 +1,26 @@
 import { useEffect, useRef } from "react";
+import { VideoInfo } from "../VideoInfo";
 import styles from "./VideoCard.module.css";
 
 export interface VideoCardProps {
   src: string;
   isActive: boolean;
+  nickname?: string;
+  comment?: string;
+  trackName?: string;
+  artistName?: string;
+  userpic?: string;
 }
 
-export function VideoCard({ src, isActive }: VideoCardProps) {
+export function VideoCard({
+  src,
+  isActive,
+  nickname = "@player",
+  comment = "Amazing shot! #basketball #dunk",
+  trackName = "Track Name",
+  artistName = "Artist",
+  userpic,
+}: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -29,6 +43,13 @@ export function VideoCard({ src, isActive }: VideoCardProps) {
         muted
         playsInline
         className={styles.video}
+      />
+      <VideoInfo
+        nickname={nickname}
+        comment={comment}
+        trackName={trackName}
+        artistName={artistName}
+        userpic={userpic}
       />
     </div>
   );
