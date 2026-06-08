@@ -33,7 +33,7 @@ export function NavBar({ active = "court", onTabChange }: NavBarProps) {
             <span className={`${styles.iconWrap} ${isAdd ? styles.iconWrapAdd : ""}`}>
               <Icon
                 name={icon}
-                size={isAdd ? 36 : 24}
+                size={32}
                 color="#fff"
               />
             </span>
