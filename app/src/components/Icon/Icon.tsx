@@ -9,7 +9,8 @@ export type IconName =
   | "hoot"
   | "flash"
   | "rebound"
-  | "location";
+  | "location"
+  | "add";
 
 export interface IconProps {
   name: IconName;
@@ -17,6 +18,14 @@ export interface IconProps {
   color?: string;
   className?: string;
 }
+
+const viewBoxes: Partial<Record<IconName, string>> = {
+  add: "0 0 36 24",
+};
+
+const defaultSizes: Partial<Record<IconName, { w: number; h: number }>> = {
+  add: { w: 36, h: 24 },
+};
 
 const paths: Record<IconName, React.ReactNode> = {
   ball: (
@@ -98,6 +107,12 @@ const paths: Record<IconName, React.ReactNode> = {
       />
     </>
   ),
+  add: (
+    <path
+      d="M24 0C30.6274 0 36 5.37258 36 12C36 18.6274 30.6274 24 24 24H12C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 7.73109e-07 12 0H24ZM18 6.75C17.5858 6.75 17.25 7.08579 17.25 7.5V11.25H13.5C13.0858 11.25 12.75 11.5858 12.75 12C12.75 12.4142 13.0858 12.75 13.5 12.75H17.25V16.5C17.25 16.9142 17.5858 17.25 18 17.25C18.4142 17.25 18.75 16.9142 18.75 16.5V12.75H22.5C22.9142 12.75 23.25 12.4142 23.25 12C23.25 11.5858 22.9142 11.25 22.5 11.25H18.75V7.5C18.75 7.08579 18.4142 6.75 18 6.75Z"
+      fill="currentColor"
+    />
+  ),
   location: (
     <path
       fillRule="evenodd"
@@ -108,12 +123,17 @@ const paths: Record<IconName, React.ReactNode> = {
   ),
 };
 
-export function Icon({ name, size = 24, color = "currentColor", className }: IconProps) {
+export function Icon({ name, size, color = "currentColor", className }: IconProps) {
+  const viewBox = viewBoxes[name] ?? "0 0 24 24";
+  const def = defaultSizes[name];
+  const w = size ?? def?.w ?? 24;
+  const h = size ? Math.round(size * (def ? def.h / def.w : 1)) : (def?.h ?? 24);
+
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
+      width={w}
+      height={h}
+      viewBox={viewBox}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{ color }}

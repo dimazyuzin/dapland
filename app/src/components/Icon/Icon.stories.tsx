@@ -24,6 +24,7 @@ const meta: Meta<typeof Icon> = {
         "flash",
         "rebound",
         "location",
+      "add",
       ] satisfies IconName[],
     },
     size: { control: { type: "range", min: 16, max: 64, step: 4 } },
@@ -54,6 +55,7 @@ export const AllIcons: Story = {
       "flash",
       "rebound",
       "location",
+      "add",
     ];
     return (
       <div
