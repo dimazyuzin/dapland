@@ -1,10 +1,70 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 :root {
+  --font: "DM Sans", system-ui, sans-serif;
+
+  /* Typography tokens */
+  --text-xl-size: 16px;
+  --text-xl-line: 20px;
+  --text-xl-weight: 700;
+  --text-xl-spacing: -0.02em;
+
+  --text-lg-size: 14px;
+  --text-lg-line: 18px;
+  --text-lg-weight: 700;
+  --text-lg-spacing: -0.02em;
+
+  --text-md-size: 14px;
+  --text-md-line: 18px;
+  --text-md-weight: 400;
+  --text-md-spacing: -0.02em;
+
+  --text-sm-size: 12px;
+  --text-sm-line: 16px;
+  --text-sm-weight: 500;
+  --text-sm-spacing: -0.02em;
+
+  --text-xs-size: 12px;
+  --text-xs-line: 16px;
+  --text-xs-weight: 700;
+  --text-xs-spacing: -0.02em;
+
+  --text-xxs-size: 10px;
+  --text-xxs-line: 12px;
+  --text-xxs-weight: 500;
+  --text-xxs-spacing: -0.02em;
+
+  /* Colors */
   --bg: #000;
   --fg: #fff;
+
+  font-family: var(--font);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
