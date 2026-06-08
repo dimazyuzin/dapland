@@ -11,7 +11,24 @@
   right: 0;
   bottom: 0;
 
+  /* Gradient background */
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+
+  /* Плавное размытие фона через маскированный backdrop-filter */
+  isolation: isolate;
+}
+
+/* Размытие, которое затухает сверху вниз вместе с градиентом */
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  -webkit-mask: linear-gradient(180deg, transparent 0%, #000 100%);
+  mask: linear-gradient(180deg, transparent 0%, #000 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Base tab */
@@ -31,6 +48,8 @@
   border: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1;
 
   transition: transform 80ms ease;
 }
@@ -43,7 +62,7 @@
   transform: scale(0.95);
 }
 
-/* Icon wrapper (32x32 with drop-shadow) */
+/* Icon wrapper 32x32 */
 .iconWrap {
   width: 32px;
   height: 32px;
@@ -62,7 +81,7 @@
   opacity: 1;
 }
 
-/* Add tab */
+/* Add tab — 72x48, icon 48x32 */
 .tabAdd {
   padding: 0 12px;
   width: 72px;
@@ -73,5 +92,7 @@
 .iconWrapAdd {
   width: 48px;
   height: 32px;
-  filter: none;
+  filter:
+    drop-shadow(0px 2.667px 2.667px rgba(0, 0, 0, 0.08))
+    drop-shadow(0px 2.667px 21.333px rgba(0, 0, 0, 0.16));
 }
