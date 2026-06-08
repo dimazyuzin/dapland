@@ -63,6 +63,8 @@
   /* Colors */
   --bg: #000;
   --fg: #fff;
+  --color-primary: #ffffff;
+  --color-surface: #000000;
 
   font-family: var(--font);
   font-synthesis: none;
