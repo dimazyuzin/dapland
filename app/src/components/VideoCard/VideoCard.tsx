@@ -7,6 +7,7 @@ import styles from "./VideoCard.module.css";
 export interface VideoCardProps {
   src: string;
   isActive: boolean;
+  preload?: "none" | "metadata" | "auto";
   visibility?: number;
   nickname?: string;
   comment?: string;
@@ -23,6 +24,7 @@ export interface VideoCardProps {
 export function VideoCard({
   src,
   isActive,
+  preload = "none",
   visibility = 1,
   nickname = "@player",
   comment = "Amazing shot! #basketball #dunk",
@@ -57,7 +59,7 @@ export function VideoCard({
         loop
         muted
         playsInline
-        preload="none"
+        preload={preload}
         className={styles.video}
       />
       {badgeName && (

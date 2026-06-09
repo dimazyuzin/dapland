@@ -72,6 +72,7 @@ export function FeedPage() {
             <VideoCard
               src={src}
               isActive={i === activeIndex}
+              preload={Math.abs(i - activeIndex) <= 1 ? "auto" : "none"}
               visibility={ratios[i] ?? 0}
               nickname={d.nickname}
               comment={d.comment}
