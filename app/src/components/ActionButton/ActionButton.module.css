@@ -14,6 +14,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.btnIconOnly {
+  height: 32px;
+}
+
 .iconWrap {
   width: 32px;
   height: 32px;

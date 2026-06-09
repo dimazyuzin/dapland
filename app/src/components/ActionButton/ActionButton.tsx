@@ -8,12 +8,16 @@ export interface ActionButtonProps {
 }
 
 export function ActionButton({ icon, label, onClick }: ActionButtonProps) {
+  const hasLabel = label !== undefined && label !== null && label !== "";
   return (
-    <button className={styles.btn} onClick={onClick}>
+    <button
+      className={`${styles.btn} ${!hasLabel ? styles.btnIconOnly : ""}`}
+      onClick={onClick}
+    >
       <span className={styles.iconWrap}>
         <Icon name={icon} size={32} color="#fff" />
       </span>
-      {label !== undefined && (
+      {hasLabel && (
         <span className={styles.label}>{label}</span>
       )}
     </button>
