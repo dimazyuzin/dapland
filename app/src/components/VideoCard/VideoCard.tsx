@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { VideoInfo } from "../VideoInfo";
 import { ActionsPanel } from "../ActionsPanel";
+import { Badge } from "../Badge";
 import styles from "./VideoCard.module.css";
 
 export interface VideoCardProps {
@@ -12,6 +13,9 @@ export interface VideoCardProps {
   trackName?: string;
   artistName?: string;
   userpic?: string;
+  badgeName?: string;
+  badgeIconBg?: string;
+  badgeIconUrl?: string;
 }
 
 export function VideoCard({
@@ -23,6 +27,9 @@ export function VideoCard({
   trackName = "Track Name",
   artistName = "Artist",
   userpic,
+  badgeName,
+  badgeIconBg,
+  badgeIconUrl,
 }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -47,6 +54,11 @@ export function VideoCard({
         playsInline
         className={styles.video}
       />
+      {badgeName && (
+        <div className={styles.badge}>
+          <Badge name={badgeName} iconBg={badgeIconBg} iconUrl={badgeIconUrl} />
+        </div>
+      )}
       <VideoInfo
         nickname={nickname}
         comment={comment}

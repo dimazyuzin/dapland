@@ -12,3 +12,10 @@
   object-fit: cover;
   display: block;
 }
+
+/* Badge — above VideoInfo (56px navbar + 100px info = 156px from bottom) */
+.badge {
+  position: absolute;
+  left: 0;
+  bottom: 156px;
+}
