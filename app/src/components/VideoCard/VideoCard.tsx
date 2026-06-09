@@ -55,7 +55,7 @@ export function VideoCard({
         className={styles.video}
       />
       {badgeName && (
-        <div className={styles.badge}>
+        <div className={styles.badge} style={{ opacity: visibility }}>
           <Badge name={badgeName} iconBg={badgeIconBg} iconUrl={badgeIconUrl} />
         </div>
       )}
@@ -67,7 +67,7 @@ export function VideoCard({
         userpic={userpic}
         opacity={visibility}
       />
-      <ActionsPanel />
+      <ActionsPanel opacity={visibility} />
     </div>
   );
 }

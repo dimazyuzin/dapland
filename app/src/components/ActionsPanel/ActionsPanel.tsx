@@ -2,6 +2,7 @@ import { ActionButton } from "../ActionButton";
 import styles from "./ActionsPanel.module.css";
 
 export interface ActionsPanelProps {
+  opacity?: number;
   reboundCount?: string | number;
   shakeLabel?: string;
   hootCount?: string | number;
@@ -14,6 +15,7 @@ export interface ActionsPanelProps {
 }
 
 export function ActionsPanel({
+  opacity = 1,
   reboundCount = "Rebound",
   shakeLabel = "Shake",
   hootCount = "0",
@@ -25,7 +27,7 @@ export function ActionsPanel({
   onMore,
 }: ActionsPanelProps) {
   return (
-    <div className={styles.panel}>
+    <div className={styles.panel} style={{ opacity }}>
       <ActionButton icon="rebound" label={reboundCount} onClick={onRebound} />
       <ActionButton icon="hoot"    label={shakeLabel}   onClick={onShake} />
       <ActionButton icon="hoot"    label={hootCount}    onClick={onHoot} />
