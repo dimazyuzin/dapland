@@ -25,6 +25,7 @@ const meta: Meta<typeof Icon> = {
         "rebound",
         "location",
       "add",
+      "more",
       ] satisfies IconName[],
     },
     size: { control: { type: "range", min: 16, max: 64, step: 4 } },
@@ -56,6 +57,7 @@ export const AllIcons: Story = {
       "rebound",
       "location",
       "add",
+      "more",
     ];
     return (
       <div
