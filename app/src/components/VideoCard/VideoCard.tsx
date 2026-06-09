@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { VideoInfo } from "../VideoInfo";
+import { ActionsPanel } from "../ActionsPanel";
 import styles from "./VideoCard.module.css";
 
 export interface VideoCardProps {
@@ -54,6 +55,7 @@ export function VideoCard({
         userpic={userpic}
         opacity={visibility}
       />
+      <ActionsPanel />
     </div>
   );
 }

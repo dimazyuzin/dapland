@@ -10,7 +10,8 @@ export type IconName =
   | "flash"
   | "rebound"
   | "location"
-  | "add";
+  | "add"
+  | "more";
 
 export interface IconProps {
   name: IconName;
@@ -112,6 +113,13 @@ const paths: Record<IconName, React.ReactNode> = {
       d="M24 0C30.6274 0 36 5.37258 36 12C36 18.6274 30.6274 24 24 24H12C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 7.73109e-07 12 0H24ZM18 6.75C17.5858 6.75 17.25 7.08579 17.25 7.5V11.25H13.5C13.0858 11.25 12.75 11.5858 12.75 12C12.75 12.4142 13.0858 12.75 13.5 12.75H17.25V16.5C17.25 16.9142 17.5858 17.25 18 17.25C18.4142 17.25 18.75 16.9142 18.75 16.5V12.75H22.5C22.9142 12.75 23.25 12.4142 23.25 12C23.25 11.5858 22.9142 11.25 22.5 11.25H18.75V7.5C18.75 7.08579 18.4142 6.75 18 6.75Z"
       fill="currentColor"
     />
+  ),
+  more: (
+    <>
+      <circle cx="16" cy="6.67" r="2.67" fill="currentColor" />
+      <circle cx="16" cy="16" r="2.67" fill="currentColor" />
+      <circle cx="16" cy="25.33" r="2.67" fill="currentColor" />
+    </>
   ),
   location: (
     <path
