@@ -2,10 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { VideoCard } from "../components/VideoCard";
 import styles from "./FeedPage.module.css";
 
-const ALL_VIDEOS = [
+const BASE_VIDEOS = [
   ...Array.from({ length: 14 }, (_, i) => `/videos/${i + 1}.mp4`),
   "/videos/16.mp4",
 ];
+
+const REPEAT = 6;
+const ALL_VIDEOS = Array.from({ length: REPEAT }, () => BASE_VIDEOS).flat();
 
 const VIDEO_DATA = [
   { nickname: "@kyrie.wav",      comment: "That crossover is NASTY 🔥 #anklebreaker #streetball",         trackName: "Babushka Boi",             artistName: "A$AP Rocky",                coverUrl: "/covers/babushka_boi.webp",      userpic: "/avatars/pic1.webp" },
@@ -31,6 +34,7 @@ const THRESHOLDS = Array.from({ length: 21 }, (_, i) => i / 20);
 export function FeedPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [ratios, setRatios] = useState<number[]>(ALL_VIDEOS.map((_, i) => i === 0 ? 1 : 0));
+  const dataLen = VIDEO_DATA.length;
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -57,28 +61,31 @@ export function FeedPage() {
 
   return (
     <div className={styles.feed}>
-      {ALL_VIDEOS.map((src, i) => (
-        <div
-          key={src}
-          ref={(el) => { itemRefs.current[i] = el; }}
-          className={styles.slide}
-        >
-          <VideoCard
-            src={src}
-            isActive={i === activeIndex}
-            visibility={ratios[i] ?? 0}
-            nickname={VIDEO_DATA[i].nickname}
-            comment={VIDEO_DATA[i].comment}
-            trackName={VIDEO_DATA[i].trackName}
-            artistName={VIDEO_DATA[i].artistName}
-            coverUrl={VIDEO_DATA[i].coverUrl}
-            userpic={VIDEO_DATA[i].userpic}
-            defaultFollowing={VIDEO_DATA[i].following}
-            badgeName={VIDEO_DATA[i].badgeName}
-            badgeIconBg={VIDEO_DATA[i].badgeIconBg}
-          />
-        </div>
-      ))}
+      {ALL_VIDEOS.map((src, i) => {
+        const d = VIDEO_DATA[i % dataLen];
+        return (
+          <div
+            key={i}
+            ref={(el) => { itemRefs.current[i] = el; }}
+            className={styles.slide}
+          >
+            <VideoCard
+              src={src}
+              isActive={i === activeIndex}
+              visibility={ratios[i] ?? 0}
+              nickname={d.nickname}
+              comment={d.comment}
+              trackName={d.trackName}
+              artistName={d.artistName}
+              coverUrl={d.coverUrl}
+              userpic={d.userpic}
+              defaultFollowing={d.following}
+              badgeName={d.badgeName}
+              badgeIconBg={d.badgeIconBg}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

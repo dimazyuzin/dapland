@@ -40,6 +40,7 @@ export function VideoCard({
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    video.volume = 0;
     if (isActive) {
       video.play().catch(() => {});
     } else {
