@@ -1,14 +1,19 @@
+import { useState } from "react";
 import styles from "./Button.module.css";
 
 export interface ButtonProps {
-  label?: string;
-  onClick?: () => void;
+  defaultFollowing?: boolean;
 }
 
-export function Button({ label = "Follow", onClick }: ButtonProps) {
+export function Button({ defaultFollowing = false }: ButtonProps) {
+  const [following, setFollowing] = useState(defaultFollowing);
+
   return (
-    <button className={styles.btn} onClick={onClick}>
-      {label}
+    <button
+      className={`${styles.btn} ${following ? styles.btnFollowing : ""}`}
+      onClick={() => setFollowing((f) => !f)}
+    >
+      {following ? "Following" : "Follow"}
     </button>
   );
 }

@@ -14,6 +14,7 @@ export interface VideoCardProps {
   artistName?: string;
   userpic?: string;
   coverUrl?: string;
+  defaultFollowing?: boolean;
   badgeName?: string;
   badgeIconBg?: string;
   badgeIconUrl?: string;
@@ -29,6 +30,7 @@ export function VideoCard({
   artistName = "Artist",
   userpic,
   coverUrl,
+  defaultFollowing,
   badgeName,
   badgeIconBg,
   badgeIconUrl,
@@ -68,6 +70,7 @@ export function VideoCard({
         artistName={artistName}
         userpic={userpic}
         coverUrl={coverUrl}
+        defaultFollowing={defaultFollowing}
         opacity={visibility}
       />
       <ActionsPanel opacity={visibility} />

@@ -10,7 +10,7 @@ export interface VideoInfoProps {
   artistName: string;
   opacity?: number;
   coverUrl?: string;
-  onFollow?: () => void;
+  defaultFollowing?: boolean;
 }
 
 export function VideoInfo({
@@ -20,7 +20,7 @@ export function VideoInfo({
   trackName,
   artistName,
   coverUrl,
-  onFollow,
+  defaultFollowing,
   opacity = 1,
 }: VideoInfoProps) {
   return (
@@ -32,7 +32,7 @@ export function VideoInfo({
             {userpic && <img src={userpic} alt={nickname} className={styles.userpicImg} />}
           </div>
           <span className={styles.nickname}>{nickname}</span>
-          <Button label="Follow" onClick={onFollow} />
+          <Button defaultFollowing={defaultFollowing} />
         </div>
         <div className={styles.comment}>
           <p className={styles.commentText}>{comment}</p>

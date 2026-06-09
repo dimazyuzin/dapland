@@ -11,14 +11,15 @@ const meta: Meta<typeof Button> = {
       values: [{ name: "dark", value: "#111111" }],
     },
   },
-  argTypes: {
-    label: { control: "text" },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Follow: Story = {
-  args: { label: "Follow" },
+  args: { defaultFollowing: false },
+};
+
+export const Following: Story = {
+  args: { defaultFollowing: true },
 };
