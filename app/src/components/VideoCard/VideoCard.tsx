@@ -13,6 +13,7 @@ export interface VideoCardProps {
   trackName?: string;
   artistName?: string;
   userpic?: string;
+  coverUrl?: string;
   badgeName?: string;
   badgeIconBg?: string;
   badgeIconUrl?: string;
@@ -27,6 +28,7 @@ export function VideoCard({
   trackName = "Track Name",
   artistName = "Artist",
   userpic,
+  coverUrl,
   badgeName,
   badgeIconBg,
   badgeIconUrl,
@@ -65,6 +67,7 @@ export function VideoCard({
         trackName={trackName}
         artistName={artistName}
         userpic={userpic}
+        coverUrl={coverUrl}
         opacity={visibility}
       />
       <ActionsPanel opacity={visibility} />

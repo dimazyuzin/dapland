@@ -7,6 +7,20 @@ const ALL_VIDEOS = [
   "/videos/16.mp4",
 ];
 
+const TRACKS = [
+  { trackName: "Babushka Boi",             artistName: "A$AP Rocky",                   coverUrl: "/covers/babushka_boi.webp" },
+  { trackName: "Free Lunch",               artistName: "Isaiah Rashad",                 coverUrl: "/covers/free_lunch.webp" },
+  { trackName: "New Level (feat. Future)", artistName: "A$AP Ferg",                     coverUrl: "/covers/new_level.webp" },
+  { trackName: "Keep Your Distance",       artistName: "Ameer Vann",                    coverUrl: "/covers/keep_your_distance.webp" },
+  { trackName: "I Ain't Got Time!",        artistName: "Tyler, The Creator",            coverUrl: "/covers/i_aint_got_time.webp" },
+  { trackName: "A-Team",                   artistName: "Travis Scott",                  coverUrl: "/covers/a_team.webp" },
+  { trackName: "Family Ties",              artistName: "Baby Keem & Kendrick Lamar",    coverUrl: "/covers/family_ties.webp" },
+  { trackName: "Programs",                 artistName: "Mac Miller",                    coverUrl: "/covers/programs.webp" },
+];
+
+// Рандомно распределяем треки по видео (детерминировано — порядок фиксирован)
+const VIDEO_DATA = ALL_VIDEOS.map((_, i) => TRACKS[i % TRACKS.length]);
+
 // Thresholds for smooth opacity tracking
 const THRESHOLDS = Array.from({ length: 21 }, (_, i) => i / 20);
 
@@ -49,6 +63,9 @@ export function FeedPage() {
             src={src}
             isActive={i === activeIndex}
             visibility={ratios[i] ?? 0}
+            trackName={VIDEO_DATA[i].trackName}
+            artistName={VIDEO_DATA[i].artistName}
+            coverUrl={VIDEO_DATA[i].coverUrl}
           />
         </div>
       ))}
