@@ -12,7 +12,12 @@
   border: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+
+  transition: transform 80ms ease;
 }
+
+.btn:hover  { transform: scale(1.05); }
+.btn:active { transform: scale(0.95); }
 
 .btnIconOnly {
   height: 32px;
