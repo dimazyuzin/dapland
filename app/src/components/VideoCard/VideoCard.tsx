@@ -57,6 +57,7 @@ export function VideoCard({
         loop
         muted
         playsInline
+        preload="none"
         className={styles.video}
       />
       {badgeName && (

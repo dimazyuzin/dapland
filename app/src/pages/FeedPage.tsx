@@ -7,7 +7,7 @@ const BASE_VIDEOS = [
   "/videos/16.mp4",
 ];
 
-const REPEAT = 6;
+const REPEAT = 3;
 const ALL_VIDEOS = Array.from({ length: REPEAT }, () => BASE_VIDEOS).flat();
 
 const VIDEO_DATA = [
